@@ -1,13 +1,13 @@
 development:
-  dialect: postgres
+  dialect: mysql
   database: coke_development
-  user: postgres
-  password: postgres
-  host: 127.0.0.1
-  pool: 5
+  user: root
+  password: root
+  host: localhost
+  port: 3306
 
 test:
-  url: {{envOr "TEST_DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/coke_test?sslmode=disable"}}
+  url: {{envOr "TEST_DATABASE_URL" "mysql://root:root@localhost:3306/coke_development"}}
 
 production:
-  url: {{envOr "DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/coke_production?sslmode=disable"}}
+  url: {{envOr "DATABASE_URL" "mysql://root:root@localhost:3306/coke_production"}}
